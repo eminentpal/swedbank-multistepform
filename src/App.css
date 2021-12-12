@@ -538,14 +538,16 @@ hr{
 .forNumber{
   width: 60px  !important;
   border-radius: 15% !important;
+  padding: 10px 0px !important;
+  font-size: 13px !important;
   height: 25px !important;
 
 }
 
-.forForm input:nth-child(1) {
+/* .forForm input:nth-child(1) {
   padding: 10px 10px;
   width: 200px;
-}
+} */
 
 .successPage{
   width: 300px;
