@@ -504,6 +504,12 @@ only screen and (max-width: 450px)  {
 
 }
 
+.forForm p{
+  font-size: 13px
+}
+
+
+
 .forForm label{
   font-size: 14px;
 }
@@ -532,6 +538,13 @@ hr{
 .forNumber{
   width: 60px  !important;
   border-radius: 15% !important;
+  height: 25px !important;
+
+}
+
+.forForm input:nth-child(1) {
+  padding: 10px 10px;
+  width: 200px;
 }
 
 .successPage{
