@@ -97,7 +97,7 @@ export const StepFour = ({answer, errors, loan, income, handleChange}) => {
 
   return (
      <div className="forForm">
-     <span style={{color:"red", backgroundColor:"#df9090", }}>{errors.email} {errors.fullName}</span>
+     <span  className="errorPage" >{errors.email} {errors.fullName}</span>
     { answer === "Yes" ?
      <div>
       <label>How much loan you took? <span style={{color:"red"}} >*</span></label>
