@@ -108,6 +108,7 @@ export const StepFour = ({answer, errors, loan, income, handleChange}) => {
        value={loan}
        name="loan"
        onChange={handleChange}
+       required
        
      />
      </div>
@@ -122,6 +123,7 @@ export const StepFour = ({answer, errors, loan, income, handleChange}) => {
        value={income}
        name="income"
        onChange={handleChange}
+       required
        
      />
    </div>
