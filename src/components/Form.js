@@ -129,7 +129,7 @@ console.log(details)
     {/* <progress max="5" value={page} /> */}
     <Progress page={page} />
     
-  { page === 5 ? <h2>Summary </h2>
+  { page === 5 ? <h2>Summary </h2> 
   :
    (<form >
       
@@ -174,7 +174,9 @@ console.log(details)
   </tbody>
 </table>
 
+
         </div>
+        
          
         <div className="pageBtn"> 
         <button className="backBtn"  onClick={() => setPage(1)}>Restart</button>

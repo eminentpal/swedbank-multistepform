@@ -169,8 +169,8 @@ only screen and (max-width: 450px)  {
     width: 330px
    }  
 
-   .radioBox:nth-child(1) {
-     
+   .radioBox span:nth-child(1) {
+      font-size: 13px;
    }
  
 
