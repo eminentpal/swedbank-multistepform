@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Steps
  1. Cd to project directory
 
- 2. Run git install to install the node modules.
+ 2. Run npm install to install the node modules.
 
  3. After node modules installed, to start the app just run the command  `npm start`
 
