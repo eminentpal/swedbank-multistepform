@@ -11,8 +11,8 @@ const Form = () => {
             fullName: '',
             email: '',
             answer: '',
-            loan: 0, 
-            income: 0     
+            loan: "", 
+            income: ""     
  })
 
  const [formErrors, setFormErrors] = useState({})
@@ -22,7 +22,6 @@ const Form = () => {
  
 
  const navigate = useNavigate()
- const location = useLocation()
 
  const handleIncrease = (e) => {
   e.preventDefault()
@@ -101,12 +100,14 @@ const Form = () => {
     
     if(details.answer === "No" && !values.income) {
      
-      errors.income = "Income is required!" 
+      errors.income = "Salary/income is required!" 
+    } else if (details.answer === "No" && values.income <= 50 ){ 
+          errors.income = "Salary/income must be above $50 "
     }
     if(details.answer === "Yes" && !values.loan) {
      
       errors.loan = "loan is required!" 
-    }
+    } 
       
   //  if (qty === 0) {
   //    errors.qty = "qty required"
@@ -131,7 +132,6 @@ console.log(details)
     setFormErrors(validate(details))
     setIsSubmit(true)
   
-   
   
   }
   
@@ -142,7 +142,7 @@ console.log(details)
     console.log(formErrors)
     // setPage((prev) => prev - 1)
     alert("Loan amount cannot be 0")
-    return;
+      // return;  
   
 } else {
   if( page === 4 && Object.keys(formErrors).length !== 0  && isSubmit) {
@@ -152,11 +152,8 @@ console.log(details)
       return setPage((prev) => prev + 1)
     }
 }
-    
-
  
-
-  
+    
     if(page === 5) {
         return;
     }
@@ -189,10 +186,13 @@ console.log(details)
               </div>
        
       <div className="smallcon"  >
-    {/* <progress max="5" value={page} /> */}
+   
     <Progress page={page} answer={details.answer} />
     
-  { page === 5 ? <h2>Summary </h2> 
+  { page === 5 ? <div> 
+                   <h2>Summary </h2>
+                   <p style={{color:'#C47D2B', opacity:"0.4"}}><em>Scroll table to right/left to see the rest of data</em></p>
+                 </div> 
   :
    (<form>
       
@@ -215,7 +215,7 @@ console.log(details)
 
         <div> 
         <div className="tableData"> 
-        <p style={{color:'#C47D2B', opacity:"0.3"}}><em>Scroll table to right to see the rest of data</em></p>
+       
         <table>
         
   <thead>
@@ -233,7 +233,7 @@ console.log(details)
       <td data-column="What is your first and last name">{details.fullName}</td>
       <td data-column="Taken loan with Swedbank before">{details.answer}</td>
       <td data-column={details?.loan ? "How much loan you took" : "Monthly salary after taxes" }>${details.loan}{details.income}</td>
-      <td data-column="How much loan offer you want">{qty}</td>
+      <td data-column="How much loan offer you want">${qty}</td>
       
     </tr>
    

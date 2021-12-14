@@ -98,7 +98,7 @@ export const StepThree = ({ handleChange, answer,handleQty, qty, errors, loan, i
      <button>-</button> */}
      </div>
      : <div>
-      <label>Monthly salary after taxes? <span style={{color:"red"}} >*</span></label>
+      <label>Monthly salary/income after taxes? <span style={{color:"red"}} >*</span></label>
     
    
       <input
@@ -147,7 +147,7 @@ export const StepFour = ({errors, qty, handleIncrease, handleDecrease}) => {
         <button onClick={handleDecrease}>-</button> */}
         <div class="quantity">
          <p onClick={handleDecrease}> <span >-</span></p>
-        <input name={qty} type="text" class="quantity__input" value={qty} />
+        <input  name={qty} type="text" class="quantity__input" value={qty} />
         <p onClick={handleIncrease}><span >+</span></p>
        </div>
      

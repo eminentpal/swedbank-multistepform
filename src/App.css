@@ -235,7 +235,11 @@ input:focus{
 
 .errorPage{
   color:rgb(243, 52, 52);
-   background-color:#df9090
+   background-color:#df9090 
+}
+
+.errorBorder{
+  border: 1px solid red;
 }
 
 .smallcon{
@@ -381,7 +385,6 @@ hr{
 
 .tableData  { 
 	max-width: 450px; 
- 
 	margin:0px auto;
   overflow: scroll;
 	}
@@ -405,14 +408,18 @@ th {
 	background: rgb(253, 139, 8); 
 	color: white; 
 	font-weight: bold; 
+  width: 100px;
 	}
-
-td, th { 
-	padding: 10px; 
-	border: 1px solid #ccc; 
-	text-align: left; 
-	font-size: 13px;
-	}
+  td, th { 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+    font-size: 13px;
+    
+    }
+   td{
+     color:#db710d;
+   }
 
   /*success page style */
   .successPage {
@@ -446,7 +453,8 @@ only screen and (max-width: 450px)  {
   em{
     display: block;
     font-size: 12px;
-    margin-top: 20px
+    margin-top: 20px;
+    
   }
 .home{
   
@@ -574,6 +582,18 @@ hr{
   padding: 10px 10px;
   width: 200px;
 } */
+td, th { 
+	padding: 5px; 
+	border: 1px solid #ccc; 
+	text-align: center; 
+	font-size: 13px;
+  font-weight: bold;
+	}
+  td{
+    font-size: 11px;
+    text-align: center;
+    width: 135px;
+  }
 
 .successPage{
   width: 300px;
