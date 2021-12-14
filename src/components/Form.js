@@ -215,7 +215,7 @@ console.log(details)
 
         <div> 
         <div className="tableData"> 
-        <p style={{color:'#C47D2B', opacity:"0.3"}}>scroll table to right to see the rest of data</p>
+        <p style={{color:'#C47D2B', opacity:"0.3"}}><em>Scroll table to right to see the rest of data</em></p>
         <table>
         
   <thead>
