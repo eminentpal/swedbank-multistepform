@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {StepOne, StepTwo, StepThree, StepFour} from "./formpages/FormSteps"
 import Progress from './formpages/Progress'
-import {useNavigate, useLocation , Link} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const Form = () => {
  
@@ -57,28 +57,9 @@ const Form = () => {
   navigate("/success")
    } 
 
-    console.log(formErrors)
-    console.log(items)
-
-
-    
 
   
  }
-
- console.log(qty)
-//  useEffect(() => {
-   
-//      console.log(formErrors)
-//    if(Object.keys(formErrors).length === 0 && isSubmit) {
-//    console.log(details)
-
-//    }
-//    else {
-//        setValid(true)
-//        console.log(valid)
-//    }
-//  }, [formErrors,page])
 
  const validate = (values) => {
     const errors = {};
@@ -88,11 +69,6 @@ const Form = () => {
       errors.fullName = "fullName is required!"
     }
 
-    // if(!values.email) {
-    //     errors.email = "Email is required!"
-    // } else if (!regex.test(values.email)) {
-    //     errors.email = "This is not a valid email format"
-    // }
     if(!values.answer) {
       errors.answer = "Yes or No is required!"
       
@@ -109,9 +85,7 @@ const Form = () => {
       errors.loan = "loan is required!" 
     } 
       
-  //  if (qty === 0) {
-  //    errors.qty = "qty required"
-  //  }
+  
    
     return errors;
 }
@@ -123,7 +97,6 @@ const handleChange = (e) => {
   setDetails({...details, [name]:value})
 }
 
-console.log(details)
 
 
  const nextPage = () => {
@@ -140,9 +113,9 @@ console.log(details)
     setFormErrors(validate(details))
     setIsSubmit(true)
     console.log(formErrors)
-    // setPage((prev) => prev - 1)
+  
     alert("Loan amount cannot be 0")
-      //  return;  
+    
   
 } else {
   if( page === 4 && Object.keys(formErrors).length !== 0  && isSubmit) {
@@ -204,7 +177,6 @@ console.log(details)
                 {page === 4 && ( <StepFour  qty= {qty} errors={formErrors} answer={details.answer} handleDecrease={handleDecrease}  handleIncrease={handleIncrease} />)}
                 
      
-                {/* <button className="forwardBtn" type={`${page}` === 4 && 'submit'}  onClick={addAll} >Finish</button>  */}
     </form>)
    }
         {page !== 5 ? 
@@ -225,7 +197,7 @@ console.log(details)
       <th>What is your first and last name</th>
       <th>Received loan from Swedbank before</th>
       <th>{details?.loan ? "How much loan you took" : "Monthly salary/income after taxes" }</th>
-      <th>Amount of loan offer you seek</th>
+      <th>what amount of loan offer you seek</th>
      
      
     </tr>
@@ -235,7 +207,7 @@ console.log(details)
       <td data-column="What is your first and last name">{details.fullName}</td>
       <td data-column="Taken loan with Swedbank before">{details.answer}</td>
       <td data-column={details?.loan ? "How much loan you took" : "Monthly salary/income after taxes" }>${details.loan}{details.income}</td>
-      <td data-column="Amount of loan offer you seek">${qty}</td>
+      <td data-column="what amount of loan offer you seek">${qty}</td>
       
     </tr>
    

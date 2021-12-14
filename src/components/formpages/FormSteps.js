@@ -25,7 +25,7 @@ export const StepTwo = ({email, answer, handleChange}) => {
 
     <div class="radioBox">
 	
-    <p>Received loan from Swedbank before?<span style={{color:"red"}} >*</span></p>
+    <p>Received loan from Swedbank before?<span style={{color:"red", marginLeft: "3px"}} >*</span></p>
 
 <ul  className="radioInput">
 <span className="yes" >
@@ -54,28 +54,9 @@ export const StepThree = ({ handleChange, answer,handleQty, qty, errors, loan, i
 
   return (
      <>
-
-
-        {/* <label>Yes</label>
-        <input
-          type="radio"
-          name="answer"
-          value="Yes"
-          onChange={handleChange}
-          
-            />
-            <label>No</label>
-        <input
-          type="radio"
-          name="answer"
-          value="No"
-          onChange={handleChange}
-          
-          
-            /> */}
         
 
-            <div className="forForm">
+   <div className="forForm">
     { answer === "Yes" ?
      <div>
       <label>How much loan you took? <span style={{color:"red"}} >*</span></label>
@@ -93,9 +74,7 @@ export const StepThree = ({ handleChange, answer,handleQty, qty, errors, loan, i
       
        
      />
-  {/* <span>{qty}</span>
-     <button onClick={handleQty} >+</button>
-     <button>-</button> */}
+
      </div>
      : <div>
       <label>Monthly salary/income after taxes? <span style={{color:"red"}} >*</span></label>
@@ -140,11 +119,9 @@ export const StepFour = ({errors, qty, handleIncrease, handleDecrease}) => {
      <div className="forForm">
      <span  className="errorPage" >{errors?.fullName} {errors?.email} {errors?.answer} {errors?.loan} {errors?.income} {errors?.qty}  </span>
    
-     <p>Amount of loan offer you seek?<span style={{color:"red"}} >*</span></p>
+     <p>what amount of loan offer you seek?<span style={{color:"red", marginLeft: "3px"}} >*</span></p>
       <div className="qty">
-        {/* <button onClick={handleIncrease} className="qtyBtn">+</button>
-        <span  className="qtyBtn">{qty}</span>
-        <button onClick={handleDecrease}>-</button> */}
+       
         <div class="quantity">
          <p onClick={handleDecrease}> <span >-</span></p>
         <input  name={qty} type="text" class="quantity__input" value={qty} />
@@ -160,30 +137,5 @@ export const StepFour = ({errors, qty, handleIncrease, handleDecrease}) => {
 
 
 
-// export const StepOne = () => {
-//   return (
-//  <>
-    
-// <div className="container">
-
-//    <div className="smallcon"  >
-//       <h1>StepOne</h1>
-//       <form className="forForm">
-//           <input
-            
-//             type="text"
-//             placeholder="What's your name?"
-//           />
-
-//         <div className="pageBtn"> 
-//             <button submit="submit">Previous</button>
-//             <button submit="submit">Next</button>
-//           </div>
-//     </form>
-//     </div>
-// </div>  
-//       </>
-//   )
-// }
 
 
