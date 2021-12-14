@@ -170,6 +170,13 @@ border: 1px solid rgb(238, 176, 62)
   border:  1px solid rgb(204, 117, 18);
 }
 
+.container img {
+  width: 200px;
+  height: 40px;
+  position: relative;
+  top: -50px;
+}
+
 .container h1 {
   font-size: 40px;
   font-weight: 200;

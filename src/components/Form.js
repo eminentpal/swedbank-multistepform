@@ -181,7 +181,9 @@ console.log(details)
              
               <div className="container">
               <div>
-                {/* <span>SwedBank</span> */}
+                
+                  <img  src="/swedbank-logo.svg" alt="swedbank" />
+                
                    
               </div>
        
