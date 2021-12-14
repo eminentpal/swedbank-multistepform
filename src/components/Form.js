@@ -181,9 +181,9 @@ console.log(details)
              
               <div className="container">
               <div>
-                
+                <div>
                   <img  src="/swedbank-logo.svg" alt="swedbank" />
-                
+                </div>
                    
               </div>
        
@@ -224,7 +224,7 @@ console.log(details)
     <tr>
       <th>What is your first and last name</th>
       <th>Taken loan with Swedbank before</th>
-      <th>{details?.loan ? "How much loan you took" : "Monthly salary after taxes" }</th>
+      <th>{details?.loan ? "How much loan you took" : "Monthly salary/income after taxes" }</th>
       <th>How much loan offer you want</th>
      
      
@@ -234,7 +234,7 @@ console.log(details)
     <tr>
       <td data-column="What is your first and last name">{details.fullName}</td>
       <td data-column="Taken loan with Swedbank before">{details.answer}</td>
-      <td data-column={details?.loan ? "How much loan you took" : "Monthly salary after taxes" }>${details.loan}{details.income}</td>
+      <td data-column={details?.loan ? "How much loan you took" : "Monthly salary/income after taxes" }>${details.loan}{details.income}</td>
       <td data-column="How much loan offer you want">${qty}</td>
       
     </tr>
