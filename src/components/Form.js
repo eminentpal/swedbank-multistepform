@@ -223,7 +223,7 @@ console.log(details)
       <th>What is your first and last name</th>
       <th>Taken loan with Swedbank before</th>
       <th>{details?.loan ? "How much loan you took" : "Monthly salary after taxes" }</th>
-      <th>How much loan you want to take</th>
+      <th>How much loan offer you want</th>
      
      
     </tr>
@@ -233,7 +233,7 @@ console.log(details)
       <td data-column="What is your first and last name">{details.fullName}</td>
       <td data-column="Taken loan with Swedbank before">{details.answer}</td>
       <td data-column={details?.loan ? "How much loan you took" : "Monthly salary after taxes" }>${details.loan}{details.income}</td>
-      <td data-column="How much loan you want to take">{qty}</td>
+      <td data-column="How much loan offer you want">{qty}</td>
       
     </tr>
    
@@ -247,7 +247,7 @@ console.log(details)
          
         <div className="pageBtn"> 
         <button className="backBtn"  onClick={() => setPage(1)}>Restart</button>
-         <button  className="forwardBtn" onClick={addAll}>submit</button>
+         <button  className="forwardBtn" onClick={addAll}>Submit</button>
         </div>
 
         </div>

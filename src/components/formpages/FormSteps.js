@@ -140,7 +140,7 @@ export const StepFour = ({errors, qty, handleIncrease, handleDecrease}) => {
      <div className="forForm">
      <span  className="errorPage" >{errors?.fullName} {errors?.email} {errors?.answer} {errors?.loan} {errors?.income} {errors?.qty}  </span>
    
-     <p>How much loan you want to take?<span style={{color:"red"}} >*</span></p>
+     <p>How much loan offer you want?<span style={{color:"red"}} >*</span></p>
       <div className="qty">
         {/* <button onClick={handleIncrease} className="qtyBtn">+</button>
         <span  className="qtyBtn">{qty}</span>

@@ -202,6 +202,11 @@ input::placeholder {
   color: #C47D2B;
 }
 
+.forForm p {
+  color: #9c7643;
+}
+
+
 input:focus{
   outline: none;
 }
@@ -439,8 +444,8 @@ only screen and (max-width: 450px)  {
 .home{
   
   text-align: center;
-  width: 300px;
-  height: 360px;
+  width: 350px;
+  height: 400px;
   z-index: 2;
   position: absolute;
   left: 50%;
@@ -456,11 +461,12 @@ only screen and (max-width: 450px)  {
 .home-cont {
   width: 280px;
   height: 300px;
-  margin:   auto;
+  margin: 10%  auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  
   
 }
 
@@ -480,7 +486,7 @@ only screen and (max-width: 450px)  {
 }
 
 .home-cont p {
-  text-align: justify;
+  text-align: center;
   color: #C47D2B;
   line-height: 1.8;
 }
@@ -520,6 +526,10 @@ only screen and (max-width: 450px)  {
 
 
 .forForm label{
+  font-size: 14px;
+}
+
+.forForm p {
   font-size: 14px;
 }
 

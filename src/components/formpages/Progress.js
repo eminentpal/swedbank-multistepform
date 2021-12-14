@@ -9,7 +9,7 @@ const Progress = ({page, answer}) => {
                                 <li class="active" id="account"><strong>Name</strong></li>
                                 <li id="personal" className={page >= 2 && 'active'} ><strong>Data</strong></li>
                                 <li id="loan" className={page >=3 && 'active'}  > { answer === "Yes" ? <strong>Loan</strong>: <strong>Income</strong>}</li>
-                                <li id="income" className={page >=4 && 'active'}  ><strong>Email</strong></li>
+                                <li id="income" className={page >=4 && 'active'}  ><strong>Offer</strong></li>
                              </ul>
                
                         <hr />

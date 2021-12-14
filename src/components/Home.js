@@ -13,7 +13,7 @@ const Home = () => {
               Kindly fill the application form to enable us give you the best loan offer.
             </p>
             
-           <Link to="/form" > <span> Complete an application </span> </Link>
+           <Link to="/form" > <span> Apply Now </span> </Link>
           
 
             </div>
