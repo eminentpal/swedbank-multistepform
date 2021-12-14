@@ -1,13 +1,10 @@
 import React from 'react'
-import './styles.css'
+
 
 const Success = () => {
     return (
         <div>
           
-            
-            
-            
      <div id="popup-container" >
            <div className = "successPage ">
            <img width="80px" src="https://i.imgur.com/GwStPmg.png" class="successImage" /> 

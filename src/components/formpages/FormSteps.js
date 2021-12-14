@@ -1,5 +1,5 @@
-import { useRef, useState } from "react"
-import "./styles.css"
+import React, { useRef, useState } from "react"
+
 export const StepOne = ({fullName, handleChange, email, country}) => {
     return (
        <div className="forForm">
@@ -25,7 +25,7 @@ export const StepTwo = ({email, answer, handleChange}) => {
 
     <div class="radioBox">
 	
-    <p>Have you taken Swedbank loan before? <span style={{color:"red"}} >*</span></p>
+    <p>Received loan from Swedbank before?<span style={{color:"red"}} >*</span></p>
 
 <ul  className="radioInput">
 <span className="yes" >
@@ -140,7 +140,7 @@ export const StepFour = ({errors, qty, handleIncrease, handleDecrease}) => {
      <div className="forForm">
      <span  className="errorPage" >{errors?.fullName} {errors?.email} {errors?.answer} {errors?.loan} {errors?.income} {errors?.qty}  </span>
    
-     <p>How much loan offer you want?<span style={{color:"red"}} >*</span></p>
+     <p>Amount of loan offer you seek?<span style={{color:"red"}} >*</span></p>
       <div className="qty">
         {/* <button onClick={handleIncrease} className="qtyBtn">+</button>
         <span  className="qtyBtn">{qty}</span>

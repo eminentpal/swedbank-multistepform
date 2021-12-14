@@ -142,7 +142,7 @@ console.log(details)
     console.log(formErrors)
     // setPage((prev) => prev - 1)
     alert("Loan amount cannot be 0")
-      // return;  
+      //  return;  
   
 } else {
   if( page === 4 && Object.keys(formErrors).length !== 0  && isSubmit) {
@@ -223,9 +223,9 @@ console.log(details)
   <thead>
     <tr>
       <th>What is your first and last name</th>
-      <th>Taken loan with Swedbank before</th>
+      <th>Received loan from Swedbank before</th>
       <th>{details?.loan ? "How much loan you took" : "Monthly salary/income after taxes" }</th>
-      <th>How much loan offer you want</th>
+      <th>Amount of loan offer you seek</th>
      
      
     </tr>
@@ -235,7 +235,7 @@ console.log(details)
       <td data-column="What is your first and last name">{details.fullName}</td>
       <td data-column="Taken loan with Swedbank before">{details.answer}</td>
       <td data-column={details?.loan ? "How much loan you took" : "Monthly salary/income after taxes" }>${details.loan}{details.income}</td>
-      <td data-column="How much loan offer you want">${qty}</td>
+      <td data-column="Amount of loan offer you seek">${qty}</td>
       
     </tr>
    
