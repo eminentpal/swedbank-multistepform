@@ -164,7 +164,7 @@ border: 1px solid rgb(238, 176, 62)
   padding: 80px 0;
   text-align: center;
   width: 600px;
-  border:  1px solid rgb(43, 179, 179);
+  border:  1px solid rgb(204, 117, 18);
 }
 
 .container h1 {
@@ -292,12 +292,12 @@ input:focus{
   content: "2"
 }
 
-#progressbar #payment:before {
+#progressbar #loan:before {
   
   content: "3"
 }
 
-#progressbar #confirm:before {
+#progressbar #income:before {
   font-family: FontAwesome;
   content: "\f00c"
 }
@@ -619,10 +619,6 @@ only screen and (max-width: 360px) {
 .home-cont h2{
   color: #512B2B;
 }
-
-
- 
-
 a {
   text-decoration: none;
 }

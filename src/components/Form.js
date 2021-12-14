@@ -11,17 +11,38 @@ const Form = () => {
             fullName: '',
             email: '',
             answer: '',
-            loan: '', 
-            income: ''     
+            loan: 0, 
+            income: 0     
  })
 
  const [formErrors, setFormErrors] = useState({})
  const [items, setItems] = useState({})
  const [isSubmit, setIsSubmit] = useState(false)
- const [valid, setValid] = useState(false)
+ const [qty, setQty] = useState(0)
+ 
 
  const navigate = useNavigate()
  const location = useLocation()
+
+ const handleIncrease = (e) => {
+  e.preventDefault()
+   if (qty < 300){
+   setQty(qty + 50)
+  }
+   else {
+    return alert("You have reached limit of loan offer")
+   }
+ }
+ const handleDecrease = (e) => {
+  e.preventDefault()
+   if(qty > 0){
+  setQty(qty - 50)
+} else {
+  
+  setQty(0)
+  alert("Sorry 0 limit reached")
+}
+}
 
  const addAll = (e) => {
     e.preventDefault()
@@ -29,20 +50,24 @@ const Form = () => {
    setFormErrors(validate(details))
    setIsSubmit(true)
   
+   if(Object.keys(formErrors).length === 0 && isSubmit) {
     setItems((prev => {
-        return {...prev, details}
-    }))
+      return {...prev, details}
+  }))
+  
+  navigate("/success")
+   } 
 
     console.log(formErrors)
     console.log(items)
 
-    navigate("/success")
 
     
 
   
  }
 
+ console.log(qty)
 //  useEffect(() => {
    
 //      console.log(formErrors)
@@ -64,12 +89,29 @@ const Form = () => {
       errors.fullName = "fullName is required!"
     }
 
-    if(!values.email) {
-        errors.email = "Email is required!"
-    } else if (!regex.test(values.email)) {
-        errors.email = "This is not a valid email format"
+    // if(!values.email) {
+    //     errors.email = "Email is required!"
+    // } else if (!regex.test(values.email)) {
+    //     errors.email = "This is not a valid email format"
+    // }
+    if(!values.answer) {
+      errors.answer = "Yes or No is required!"
+      
     }
-
+    
+    if(details.answer === "No" && !values.income) {
+     
+      errors.income = "Income is required!" 
+    }
+    if(details.answer === "Yes" && !values.loan) {
+     
+      errors.loan = "loan is required!" 
+    }
+      
+  //  if (qty === 0) {
+  //    errors.qty = "qty required"
+  //  }
+   
     return errors;
 }
 
@@ -88,14 +130,29 @@ console.log(details)
   if(page === 3) { 
     setFormErrors(validate(details))
     setIsSubmit(true)
-   } 
-
-   if( page === 4 && Object.keys(formErrors).length !== 0  && isSubmit ) {
-
-    console.log("formErrors") 
-
-    setPage((prev) => prev - 1)
+  
+   
+  
   }
+  
+  if( page === 4 && qty === 0  ) {
+
+    setFormErrors(validate(details))
+    setIsSubmit(true)
+    console.log(formErrors)
+    // setPage((prev) => prev - 1)
+    alert("Loan amount cannot be 0")
+    return;
+  
+} else {
+  if( page === 4 && Object.keys(formErrors).length !== 0  && isSubmit) {
+     
+     return;
+    } else {
+      return setPage((prev) => prev + 1)
+    }
+}
+    
 
  
 
@@ -103,7 +160,9 @@ console.log(details)
     if(page === 5) {
         return;
     }
-     setPage((prev) => prev + 1)
+  
+    if (page < 4) 
+    { return setPage((prev) => prev + 1)}
 
 
  }
@@ -124,50 +183,58 @@ console.log(details)
               <div id="popup-container"  >
              
               <div className="container">
-           
+              <div>
+                {/* <span>SwedBank</span> */}
+                   
+              </div>
+       
       <div className="smallcon"  >
     {/* <progress max="5" value={page} /> */}
-    <Progress page={page} />
+    <Progress page={page} answer={details.answer} />
     
   { page === 5 ? <h2>Summary </h2> 
   :
-   (<form >
+   (<form>
       
-                {page === 1 && ( <StepOne fullName= {details.fullName}  handleChange={handleChange} />)}
-                {page === 2 && ( <StepTwo email= {details.email} handleChange={handleChange} />)}
-                {page === 3 && ( <StepThree answer={details.answer}   handleChange={handleChange} />)}
-                {page === 4 && ( <StepFour errors={formErrors} answer={details.answer} income= {details.income} loan= {details.loan} handleChange={handleChange} />)}
+                {page === 1 && ( <StepOne fullName= {details.fullName}   handleChange={handleChange} />)}
+                {page === 2 && ( <StepTwo  email= {details.email} answer={details.answer} handleChange={handleChange} />)}
+                {page === 3 && ( <StepThree  errors={formErrors} answer={details.answer} income= {details.income} loan= {details.loan}  handleChange={handleChange} />)}
+                {page === 4 && ( <StepFour  qty= {qty} errors={formErrors} answer={details.answer} handleDecrease={handleDecrease}  handleIncrease={handleIncrease} />)}
                 
      
-     
+                {/* <button className="forwardBtn" type={`${page}` === 4 && 'submit'}  onClick={addAll} >Finish</button>  */}
     </form>)
    }
         {page !== 5 ? 
         <div className="pageBtn"> 
                 <button style= {{ visibility: page === 1 && "hidden"}} className="backBtn" onClick={prevPage} >Back</button>
-       { page === 4 ? <button className="forwardBtn"  onClick={nextPage} >Finish</button>  : <button className="forwardBtn"  onClick={nextPage} >Forward</button>}
+       { page === 4 ? <button className="forwardBtn" type={`${page}` === 4 && 'submit'}  onClick={nextPage} >Finish</button>  : <button className="forwardBtn"  onClick={nextPage} >Forward</button>}
        </div>
         
         : (
 
         <div> 
         <div className="tableData"> 
-       
+        <p style={{color:'#C47D2B', opacity:"0.3"}}>scroll table to right to see the rest of data</p>
         <table>
+        
   <thead>
     <tr>
       <th>What is your first and last name</th>
-      <th>Which email address can we contact you with</th>
-      <th>Have you taken loan with Swedbank before </th>
+      <th>Taken loan with Swedbank before</th>
       <th>{details?.loan ? "How much loan you took" : "Monthly salary after taxes" }</th>
+      <th>How much loan you want to take</th>
+     
+     
     </tr>
   </thead>
   <tbody>
     <tr>
       <td data-column="What is your first and last name">{details.fullName}</td>
-      <td data-column="Which email address can we contact you with">{details.email}</td>
-      <td data-column="Have you taken loan with Swedbank before">{details.answer}</td>
-      <td data-column={details?.loan ? "How much loan you took" : "Monthly salary after taxes" }>{details.loan} {details.income}</td>
+      <td data-column="Taken loan with Swedbank before">{details.answer}</td>
+      <td data-column={details?.loan ? "How much loan you took" : "Monthly salary after taxes" }>${details.loan}{details.income}</td>
+      <td data-column="How much loan you want to take">{qty}</td>
+      
     </tr>
    
    
